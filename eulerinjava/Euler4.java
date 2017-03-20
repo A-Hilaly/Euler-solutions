@@ -6,9 +6,6 @@ public class Euler4 {
 	{
 		
         System.out.println(solution()); 
-        System.out.println(836*836); 
-		
-		
 		
 	}
 	
