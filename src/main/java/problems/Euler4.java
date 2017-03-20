@@ -1,13 +1,8 @@
+package problems;
 import java.math.*;
 
 public class Euler4 {
 
-	public static void main(String[] args) 
-	{
-		
-        System.out.println(solution()); 
-		
-	}
 	
 	public static int solution(){
 		int i;

@@ -1,15 +1,11 @@
+package problems;
+
 import java.math.*;
+
 
 public class Euler3 {
 
-	public static void main(String[] args) 
-	{
-		
-		System.out.println(solution(600851475143L));
-		
-		
-	}
-	
+
 	static boolean isprime(long p)
 	{
 		int i;
@@ -23,7 +19,9 @@ public class Euler3 {
 		}
 		return true;
 	}
-	static long solution(long n){
+
+	static long solution(){
+	    long n=600851475143L;
 		int i;
 		long largestfactor=0;
 		for (i=1001;i<Math.sqrt(n);i=i+2){

@@ -1,10 +1,8 @@
+package problems;
+
 public class Euler1 {
 
-	public static void main(String[] args) {
-  
-		System.out.println(sum(1000,3)+sum(1000,5)-sum(1000,15));
-	
-	}
+
   
 	static int sum (int b,int step) {
   
@@ -15,6 +13,10 @@ public class Euler1 {
 		}
     
 		return summ;
+	}
+
+	static int solution(){
+        return sum(1000,3)+sum(1000,5)-sum(1000,15);
 	}
 
 }
