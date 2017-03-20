@@ -1,19 +1,14 @@
+package problems;
 public class Euler2 {
-
-	public static void main(String[] args) 
-	{
-		
-		System.out.println(solution(4000000));
-		
-	}
 	
 	static int next_fibonacci (int a,int b)
 	{
 		return a+b;
 	}
 	
-	static int solution (int limit)
+	static int solution ()
 	{
+		int limit=4000000;
 		int f=2;
 		int memory=0;
 		int pf=1;
@@ -21,7 +16,7 @@ public class Euler2 {
 		while (f < limit) 
 		{
 			if (f%2==0){
-				sum +=f;
+				sum =f;
 			}
 			memory=f;
 			f=next_fibonacci(f,pf);
