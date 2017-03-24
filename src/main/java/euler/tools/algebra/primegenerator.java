@@ -5,21 +5,19 @@ import java.util.Iterator;
 /**
  * Created by JAJAJAJJAJAJAJ on 24/03/17.
  */
-public class primegen {
-    private int LargestKnownPrime;
-    private int private_index=0;
-    private int secret_side;
-    ArrayList<Long> PrimSieve = new ArrayList<Long>();
 
 
-    Iterator<Long> iter = PrimSieve.iterator();
+public class primegenerator {
+
+    int private_index=1;
+    int secret_side=-1;
+    public ArrayList<Long> PrimSieve = new ArrayList<Long>();
 
     public boolean isprime(long p)
     {
-        if (this.PrimSieve.isEmpty()) {
-            GeneratePrimes(p);
-        }
+        GeneratePrimes(p);
         Iterator<Long> iter = this.PrimSieve.iterator();
+
         while (iter.hasNext()){
             long div=iter.next();
             if (p%div==0){
@@ -32,9 +30,9 @@ public class primegen {
     public void GeneratePrimes(long p){
         int n;
         if (this.PrimSieve.isEmpty()) {
-            GeneratePrimesBase(p);
+            GeneratePrimesBase();
         }
-        while (this.LargestKnownPrime<Math.sqrt(p)){
+        while (max(this.PrimSieve)<Math.sqrt(p)){
             next_prime();
         }
     }
@@ -49,32 +47,36 @@ public class primegen {
             if (p % d == 0) {
                 return false;
             }
-
         }
         return true;
     }
-    public void GeneratePrimesBase(long p){
+    public void GeneratePrimesBase(){
         this.PrimSieve.add(2L);
         this.PrimSieve.add(3L);
 
     }
 
-    public long next_prime() {
-
-
-        long i=max(this.PrimSieve)+this.secret_side;
-        int k;
-        while (true){
-            k = this.private_index + this.secret_side
-            if (primitivity_test(k)==false);
-            i+=6;
+    public void next_prime() {
+        boolean found=false;
+        while (true) {
+            long p = this.private_index * 6 + this.secret_side;
+            if (primitivity_test(p)) {
+                this.PrimSieve.add(p);
+                found=true;
+            }
+            if (this.secret_side == 1) {
+                this.private_index += 1;
+            }
+            this.secret_side = this.secret_side * -1;
+            if (found){
+                break;
+            }
         }
-        return i;
     }
 
-    public long max(ArrayList<Long> tab){
 
-        return this.PrimSieve.get(this.PrimSieve.size());
+    public long max(ArrayList<Long> tab){
+        return this.PrimSieve.get(this.PrimSieve.size()-1);
     }
 }
 
