@@ -1,20 +1,37 @@
 package euler.tools.algebra;
-
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /**
- * Created by JAJAJAJJAJAJAJ on 24/03/17.
+ * Created by Hilaly Mohammed-Amine on 24/03/17.
  */
+
+/* Generating primes using a known list of primes eliminates all unecessary calculation
+* Until we will need to extend our prime list using the fact that the IP\{2,3} are all included
+* in {6k+1, 6k-1 / for k in N\{0}}
+*
+*/
 
 
 public class primegenerator {
-
+    /** 
+    6K+1 / 6k-1 <==> private_index*6 + (secret_side)^m
+    */
     int private_index=1;
     int secret_side=-1;
     public ArrayList<Long> PrimSieve = new ArrayList<Long>();
+    
+    public void GeneratePrimesBase(){
+        this.PrimSieve.add(2L);
+        this.PrimSieve.add(3L);
 
+    }
+    
+    /*  p primitivity test is done by checking divisibility by all primes < sqrt p
+    */
     public boolean isprime(long p)
     {
+        
         GeneratePrimes(p);
         Iterator<Long> iter = this.PrimSieve.iterator();
 
@@ -49,11 +66,6 @@ public class primegenerator {
             }
         }
         return true;
-    }
-    public void GeneratePrimesBase(){
-        this.PrimSieve.add(2L);
-        this.PrimSieve.add(3L);
-
     }
 
     public void next_prime() {
