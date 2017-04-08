@@ -3,6 +3,9 @@ package euler;
 /**
  * Created by JAJAJAJJAJAJAJ on 08/04/17.
  */
+
+
+# Pygore triplet bruteforce
 public class Euler9 {
     public int solution(){
         int i,j,k,p;
