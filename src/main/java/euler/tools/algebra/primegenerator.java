@@ -87,8 +87,20 @@ public class primegenerator {
     }
 
 
-    public long max(ArrayList<Long> tab){
+   public long max(){
+        if (this.PrimSieve.size()==0){
+            return 0;
+        }
         return this.PrimSieve.get(this.PrimSieve.size()-1);
+    }
+
+    public long sumsieve(){
+        long sum=0;
+        int i;
+        for (i=0;i<this.PrimSieve.size();i++){
+            sum+=this.PrimSieve.get(i);
+        }
+        return sum;
     }
 }
 
