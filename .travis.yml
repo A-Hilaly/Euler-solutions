@@ -1,2 +1,2 @@
 language: java
-mvn Main.java -B
+script : "mvn Main.java -B"
