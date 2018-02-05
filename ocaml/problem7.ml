@@ -17,6 +17,8 @@ let next_prime primes len =
                   check_divisors (List.tl lis) p
   in
   let rec find_next num use =
+    print_int(1111111111111111);
+    print_newline();
     print_int(num);
     print_newline();
     if check_divisors use num then
@@ -31,7 +33,7 @@ let next_prime primes len =
 
 let rec solve primes nth =
   let len = List.length primes in
-  if len == nth then
+  if len > nth then
     primes
   else
     solve (next_prime primes len) nth
